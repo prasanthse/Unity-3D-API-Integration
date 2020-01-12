@@ -10,7 +10,7 @@ public class APIConnection : MonoBehaviour
     public Text highScoreText;
     public Text successState;
 
-    private string apiUrl = "";
+    private string apiUrl = "http://localhost:8080/highScore/getScore";
     private HighScoreStruct highScoreStruct;
 
     public void CallAPI()
@@ -52,10 +52,13 @@ public class APIConnection : MonoBehaviour
 
             playerName.text = highScoreStruct.playerName;
             highScoreText.text = highScoreStruct.highScore.ToString();
+
+            successState.color = Color.green;
             successState.text = "Success!";
         }
         else
         {
+            successState.color = Color.red;
             successState.text = "Fail!";
         }
     }
